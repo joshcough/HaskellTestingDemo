@@ -1,97 +1,25 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
-name:                l
+name:                haskell-testing-demo
 version:             0.1.0.0
-synopsis:            A compiler written in Haskell
+synopsis:            A testing demo for haskell
 -- description:         
-homepage:            https://github.com/joshcough/Compilers
+homepage:            https://github.com/joshcough/HaskellTestingDemo
 license:             MIT
 license-file:        LICENSE
 author:              Josh Cough
 maintainer:          joshcough@gmail.com
 -- copyright:           
-category:            Languages
+category:            Demo
 build-type:          Simple
 cabal-version:       >=1.8
 
 source-repository head
   type: git
-  location: git@github.com:joshcough/L5-Haskell.git
-
--- `cabal install --enable-tests -f-tests` to disable tests suite
-flag tests
-  manual: True
-  default: True
+  location: git@github.com:joshcough/HaskellTestingDemo.git
 
 library
   hs-source-dirs: src
-
-  exposed-modules:
-    L.CompilationUnit
-    L.IOHelpers
-    L.L1L2AST
-    L.L1L2Parser
-    L.Read
-    L.Utils
-    -- L1
-    L.L1.L1
-    -- L2
-    L.L2.L2
-    L.L2.Interference
-    L.L2.Liveness
-    L.L2.Spill
-    L.L2.Vars
-
-  build-depends:
-    base                      >= 4       && < 5,
-    containers                >= 0.3     && < 0.6,
-    directory                 >= 1.2.0.1,
-    filepath                  >= 1.3     && < 1.4,
-    lens                      >= 3.9     && < 4,
-    mtl                       >= 2       && < 2.2
-
--- executable for the L1 Compiler
-executable L1Main
-  hs-source-dirs: mains/l1
-  main-is: Main.hs
-  build-depends: base < 5, directory >= 1.2.0.1, l, mtl >= 2 && < 2.2
-
--- executable for Liveness
-executable LivenessMain
- hs-source-dirs: mains/liveness
- main-is: Main.hs
- build-depends: base < 5, directory >= 1.2.0.1, l, mtl >= 2 && < 2.2
-
--- executable for Interference
-executable InterferenceMain
- hs-source-dirs: mains/interference
- main-is: Main.hs
- build-depends: base < 5, directory >= 1.2.0.1, l, mtl >= 2 && < 2.2
-
--- QuickCheck and HUnit tests in one!
-test-suite tests
-  type:           exitcode-stdio-1.0
-  main-is:        test/main.hs
-  hs-source-dirs: . test
-  other-modules:
-    LProperties
-    LUnitTests
-
-  if !flag(tests)
-    buildable: False
-  else
-    build-depends:
-      base,
-      directory                  >= 1.2.0.1,
-      HUnit,
-      l,
-      QuickCheck                 >= 2.4,
-      quickcheck-instances       >= 0.3.1,
-      test-framework             >= 0.6,
-      test-framework-hunit,
-      test-framework-quickcheck2 >= 0.2,
-      test-framework-th          >= 0.2
-
 
 -- TestFramework HUnit tests
 test-suite unit-tests
