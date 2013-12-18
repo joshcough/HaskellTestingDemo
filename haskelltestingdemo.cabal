@@ -24,8 +24,8 @@ library
 -- TestFramework HUnit tests
 test-suite unit-tests
   type:           exitcode-stdio-1.0
-  main-is:        test/UnitTestsMain.hs
-  hs-source-dirs: . test
+  main-is:        UnitTestsMain.hs
+  hs-source-dirs: .
   build-depends:
     base,
     HUnit,
@@ -35,8 +35,8 @@ test-suite unit-tests
 -- TestFramework QuickCheck tests
 test-suite properties
   type:           exitcode-stdio-1.0
-  main-is:        test/PropertiesMain.hs
-  hs-source-dirs: . test
+  main-is:        PropertiesMain.hs
+  hs-source-dirs: .
   build-depends:
     base,
     QuickCheck                 >= 2.4,
@@ -47,8 +47,8 @@ test-suite properties
 -- TestFramework HUnit and QuickCheck tests
 test-suite unit-tests-and-properties
   type:           exitcode-stdio-1.0
-  main-is:        test/UnitTestsAndPropertiesMain.hs
-  hs-source-dirs: . test
+  main-is:        UnitTestsAndPropertiesMain.hs
+  hs-source-dirs: .
   build-depends:
     base,
     HUnit,
@@ -61,8 +61,8 @@ test-suite unit-tests-and-properties
 -- Tasty All
 test-suite tasty
   type:           exitcode-stdio-1.0
-  main-is:        test/TastyMain.hs
-  hs-source-dirs: . test
+  main-is:        TastyMain.hs
+  hs-source-dirs: .
   build-depends:
     base,
     tasty >= 0.5.2,
